@@ -1,14 +1,16 @@
 
 import psycopg2
+import os
 
 def connect_db():
+    """Connects to PostgreSQL database using environment variables."""
     return psycopg2.connect(
-        dbname="neondb",  # Tumhara Neon Database Name
-        user="neondb_owner",  # Tumhara Neon User
-        password="npg_umU8LsfQ7Tnb",  # Tumhara Neon Password
-        host="ep-old-darkness-a5hnbzi7-pooler.us-east-2.aws.neon.tech",  # Tumhara Neon Host
-        port="5432",  # Default PostgreSQL Port
-        sslmode="require"  # SSL Mode Required hai Neon ke liye
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+        sslmode="require"
     )
 
 # Function to Add a Book
