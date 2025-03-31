@@ -1,10 +1,10 @@
 
-import psycopg2
+import pgvector.psycopg as psycopg  # Use pgvector's psycopg module
 import os
 
 def connect_db():
     """Connects to PostgreSQL database using environment variables."""
-    return psycopg2.connect(
+    return psycopg.connect(
         dbname=os.getenv("DB_NAME"),
         user=os.getenv("DB_USER"),
         password=os.getenv("DB_PASSWORD"),
