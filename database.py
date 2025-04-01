@@ -1,5 +1,5 @@
 
-import pgvector.psycopg as psycopg  # Use pgvector's psycopg module
+import psycopg  # Use pgvector's psycopg module
 import os
 
 def connect_db():
